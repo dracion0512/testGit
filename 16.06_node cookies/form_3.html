@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<style>
+		.circle {
+			border-radius: 50%;
+
+			display: block;
+		}
+	</style>
+	<form action="/" method="POST">
+    <input type="color" name="color">
+    <input type="number" name="size">
+    <input type="submit" value="Отправить">
+</form>
+    <div class="circle"></div>
+    <script>
+    	function read_cookie(key)
+    	{
+    	    var result;
+    	    return (result = new RegExp('(?:^|; )' + encodeURIComponent(key) + '=([^;]*)').exec(document.cookie)) ? (result[1]) : null;
+    	}
+    	document.querySelector(".circle").style.backgroundColor = read_cookie("color");
+    	document.querySelector(".circle").style.width = `${read_cookie("size")}px`;
+    	document.querySelector(".circle").style.height = `${read_cookie("size")}px`;
+    	console.log(` ${read_cookie("size")}px ${read_cookie("color")}`)
+    </script>
+</form>
+</body>
+</html>
